@@ -1,0 +1,39 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+.panel-body{
+  background-color: #fff;
+}
+ .logo-icon {
+   width: 28px;  // 14px * 2
+   height: 28px; // 14px * 2
+   background-size: 938px 318px;  // original dimensions * 2
+   background-position: -624px -48px;  // original position * 2
+ }
+
+ body { padding-top:30px; }
+ .widget .panel-body { padding:0px; }
+ .widget .list-group { margin-bottom: 0; }
+ .widget .panel-title { display:inline }
+ .widget .label-info { float: right; }
+ .widget li.list-group-item {border-radius: 0;border: 0;border-top: 1px solid #ddd;}
+ .widget li.list-group-item:hover { background-color: rgba(86,61,124,.1); }
+ .widget .mic-info { color: #666666;font-size: 11px; }
+ .widget .action { margin-top:5px; }
+ .widget .comment-text { font-size: 12px; }
+ .widget .btn-block { border-top-left-radius:0px;border-top-right-radius:0px; }
