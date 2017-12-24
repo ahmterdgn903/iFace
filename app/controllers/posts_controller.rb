@@ -1,12 +1,10 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy, :kontrol, :like, :unlike]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :like, :unlike, :kontrol]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :kontrol, only: [:edit, :destroy]
   # GET /posts
   # GET /posts.json
-def kontrol
-  redirect_to posts_path, notice:"Yetkiniz yok!" unless current_user==@post.user
-end
+
   def index
 
     if params[:user]
@@ -36,6 +34,7 @@ end
   # POST /posts
   # POST /posts.json
   def create
+   
     @post = Post.new(post_params)
     @post.user=current_user
     respond_to do |format|
@@ -72,6 +71,11 @@ end
       format.json { head :no_content }
     end
   end
+  def kontrol
+    unless @post.user==current_user
+    redirect_to posts_path, notice: "Yetkiniz yok!"  unless current_user==@post.user
+  end
+end
 
   def like
     @l=Like.new
