@@ -1,8 +1,12 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy, :like, :unlike]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :kontrol, :like, :unlike]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :kontrol, only: [:edit, :destroy]
   # GET /posts
   # GET /posts.json
+def kontrol
+  redirect_to posts_path, notice:"Yetkiniz yok!" unless current_user==@post.user
+end
   def index
 
     if params[:user]
